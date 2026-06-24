@@ -39,22 +39,15 @@ class PageAccueil extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
-        
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          
-          
-          children: [
-            Text('Dernière nouvelle !',style: TextStyle(
-              fontWeight: FontWeight.w800,
-              fontSize: 26,
-              color: const Color.fromARGB(255, 147, 121, 42)
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
 
-            ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
+          children: [
+          Padding(
+              padding: EdgeInsets.all(5.0),
               child: Image(image: AssetImage(
                 'assets/images/son.png',
                 
@@ -64,18 +57,161 @@ class PageAccueil extends StatelessWidget {
               
               ),
             ),
-            FloatingActionButton(onPressed: (){
-              debugPrint('Tu as cliqué dessus !');
-            },child: const Text("Click",style: TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 15,
+            PartieTitre(),
+            PartieTexte(),
+            PartieIcone(),
+            PartieRubrique()
 
-            ),
-            ),
-            ),
-            
-          ],
+        ]
+
+          ),
+
         ),
+        
+        
+    ),
+    );
+  }
+}
+
+class PartieTitre extends StatelessWidget {
+  const PartieTitre({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+     
+      padding: EdgeInsets.all(20),
+      
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text("L'ÈRE DE LA DESINFORMATION",
+          style:TextStyle(
+            color: Colors.black,
+            fontSize: 32,
+            fontWeight: FontWeight.w900,
+          ) ,
+          ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text("Verifiez toujours ce que vous voyez sur le Net !",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class PartieTexte extends StatelessWidget {
+  const PartieTexte({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: 
+      Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Text("La désinformation est une manipulation intentionnelle de l'information visant à tromper, diviser ou nuire. Face à la viralité des fausses nouvelles (fake news) sur internet, chacun a le pouvoir de stopper leur propagation.",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+        ),),
+      ),
+    );
+  }
+}
+
+class PartieIcone extends StatelessWidget {
+  const PartieIcone({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+      child: Row(
+      mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+      children: [
+        Container(
+          child: Column(children: [
+            Icon(Icons.phone,size: 18.0,color: const Color.fromARGB(155, 207, 126, 102),),
+            SizedBox(height: 10,),
+            Text("TEL",
+            style: TextStyle(fontWeight: FontWeight.w500))
+          ],
+          ),
+          
+        ),
+
+        Container(
+          child: Column(children: [
+            Icon(Icons.mail,size: 18.0,color: const Color.fromARGB(155, 207, 126, 102),),
+            SizedBox(height: 10,),
+            Text("MAIL",
+            style: TextStyle(fontWeight: FontWeight.w500))
+          ],
+          ),
+          
+        ),
+
+        Container(
+          child: Column(children: [
+            Icon(Icons.share,size: 18.0,color: const Color.fromARGB(155, 207, 126, 102),),
+            SizedBox(height: 10,),
+            Text("PARTAGE",
+            style: TextStyle(fontWeight: FontWeight.w500),)
+          ],
+          ),
+          
+        ), 
+
+      ],),
+    );
+  }
+}
+
+
+class PartieRubrique extends StatelessWidget {
+  const PartieRubrique({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+       children: [
+         ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Image(image: AssetImage(
+                'assets/images/lale.png',
+                
+              ),
+              width: 140.0,
+              height: 140.0,
+              fit:BoxFit.cover,
+              
+              ),
+        ),
+
+        ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Image(image: AssetImage(
+                'assets/images/suite.png',
+                
+              ),
+              width: 140.0,
+              height: 140.0,
+              fit:BoxFit.cover,
+              
+              ),
+        ),
+       ],
       ),
     );
   }
